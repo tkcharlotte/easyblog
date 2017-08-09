@@ -1,0 +1,12 @@
+{% extends "./base.html" %}
+{% load pagination_tags %}
+  {% block article %}
+        {% autopaginate post 5 %}
+
+         {% for p in post %}
+            <h3 class="blog-post-title"><a href="/article/{{p.id}}" target="_blank">{{ p.title }}</a></h3>
+            <p class="blog-post-meta">{{ p.pub_date }} &nbsp;  分类于 <a href="#">{{ p.category }} &nbsp; </a></p>
+
+         {% endfor %}
+  {% paginate %}
+{% endblock %}
